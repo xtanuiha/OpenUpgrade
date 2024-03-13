@@ -68,6 +68,9 @@ def _create_default_return_type_for_all_warehouses(env):
         # create return picking type
         return_type_id = env["stock.picking.type"].create(values).id
         # update return picking type for warehouse
+        if wh.partner_id.company_id != wh.company_id:
+            print(f'-----------------------{wh.partner_id.name}(wh.name):{wh.partner_id.company_id.name}-->{wh.company_id.name}')
+            wh.partner_id.write({'company_id': wh.company_id.id})
         wh.write({"return_type_id": return_type_id})
         wh.out_type_id.write({"return_picking_type_id": return_type_id})
         wh.in_type_id.write({"return_picking_type_id": wh.out_type_id.id})
