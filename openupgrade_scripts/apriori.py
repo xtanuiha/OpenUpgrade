@@ -30,6 +30,8 @@ renamed_modules = {
     "sale_coupon_portal_commercial_partner_applicability": "coupon_portal_commercial_partner_applicability",  # noqa: B950
     # OCA/stock-logistics-worehouse
     "stock_inventory_cost_info": "stock_quant_cost_info",
+    # OCA/timesheet:
+    "hr_timesheet_activity_begin_end": "hr_timesheet_begin_end",
     # OCA/...
 }
 
@@ -71,6 +73,8 @@ merged_modules = {
     "website_sale_stock_available_display": "website_sale_stock",
     # OCA/hr-attendance
     "hr_attendance_user_list": "hr_attendance",
+    # OCA/l10n-germany
+    "l10n_de_steuernummer": "base_vat",
     # OCA/manufacture
     "mrp_subcontracting_resupply_link": "mrp_subcontracting_purchase",
     # OCA/pos
