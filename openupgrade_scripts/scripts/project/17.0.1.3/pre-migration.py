@@ -5,6 +5,18 @@
 from openupgradelib import openupgrade
 
 
+_deleted_xml_records = [
+    "project.ir_cron_recurring_tasks",
+    "project.mt_project_task_blocked",
+    "project.mt_project_task_dependency_change",
+    "project.mt_project_task_ready",
+    "project.mt_task_blocked",
+    "project.mt_task_dependency_change",
+    "project.mt_task_progress",
+    "project.mt_task_ready",
+]
+
+
 def remove_columns(env):
     openupgrade.logged_query(
         env.cr,
@@ -20,3 +32,7 @@ def remove_columns(env):
 @openupgrade.migrate()
 def migrate(env, version):
     remove_columns(env)
+    openupgrade.delete_records_safely_by_xml_id(
+        env,
+        _deleted_xml_records,
+    )
