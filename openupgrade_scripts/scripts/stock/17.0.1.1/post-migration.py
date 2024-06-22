@@ -7,7 +7,7 @@ from openupgradelib import openupgrade
 
 def _update_stock_move_quantity(env):
     openupgrade.logged_query(
-        env,
+        env.cr,
         "UPDATE stock_move SET quantity = quantity_done WHERE quantity_done != 0;"
     )
 
@@ -23,7 +23,7 @@ def _update_stock_move_scrap(env):
 
 def _update_stock_move_line_quantity(env):
     openupgrade.logged_query(
-        env,
+        env.cr,
         "UPDATE stock_move_line SET quantity = qty_done WHERE qty_done != 0;"
     )
 
